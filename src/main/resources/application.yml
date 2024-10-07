@@ -1,6 +1,7 @@
 spring:
   application.name: resilience4j-demo
   jackson.serialization.indent_output: true
+  logging.level.org.springframework: DEBUG
 
 management:
   endpoints.web.exposure.include:
@@ -12,8 +13,8 @@ resilience4j.circuitbreaker:
   configs:
     default:
       registerHealthIndicator: true
-      slidingWindowSize: 10
-      minimumNumberOfCalls: 5
+      slidingWindowSize: 2
+      minimumNumberOfCalls: 2
       permittedNumberOfCallsInHalfOpenState: 3
       automaticTransitionFromOpenToHalfOpenEnabled: true
       waitDurationInOpenState: 5s
